@@ -1,0 +1,22 @@
+name: Create Hajiloop tracked link v2
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  shorten:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create tracked Hajiloop short link
+        shell: bash
+        run: |
+          set -euo pipefail
+          response=$(curl -sS --get 'https://is.gd/create.php' \
+            --data-urlencode 'format=json' \
+            --data-urlencode 'url=https://hyped-nebula-8b4aw3z.shipstatic.com/?utm_source=instagram&utm_medium=bio&utm_campaign=hajiloop_waitlist' \
+            --data-urlencode 'shorturl=hajiloop_hq' \
+            --data-urlencode 'logstats=1')
+          echo "SHORTLINK_RESPONSE=$response"
+          echo "$response" | grep -q 'shorturl'

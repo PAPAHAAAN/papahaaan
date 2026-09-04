@@ -1,0 +1,45 @@
+name: Verify Hajiloop launch
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify short link, landing page, and background asset
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          result=$(curl -sS -L -o /tmp/hajiloop.html -w '%{url_effective}|%{http_code}' 'https://spoo.me/hajiloop')
+          echo "LANDING_RESULT=$result"
+          grep -q 'Join the waitlist' /tmp/hajiloop.html
+          grep -q 'loopnote.hq@gmail.com' /tmp/hajiloop.html
+
+          mkdir -p /tmp/hajiloop-assets
+          for i in 0 1 2 3 4 5; do
+            curl -sS "https://raw.githubusercontent.com/PAPAHAAAN/papahaaan/main/hajiloop-assets/bg-${i}.js" -o "/tmp/hajiloop-assets/bg-${i}.js"
+          done
+
+          python - <<'PY'
+          import base64, hashlib, pathlib, re
+          pieces=[]
+          for i in range(6):
+              text=pathlib.Path(f'/tmp/hajiloop-assets/bg-{i}.js').read_text()
+              match=re.search(r"__hajiloopBg\[%d\]='([^']+)'" % i, text)
+              if not match:
+                  raise SystemExit(f'missing chunk {i}')
+              pieces.append(match.group(1))
+          raw=base64.b64decode(''.join(pieces), validate=True)
+          digest=hashlib.sha256(raw).hexdigest()
+          print('BACKGROUND_BYTES='+str(len(raw)))
+          print('BACKGROUND_SHA256='+digest)
+          if digest != 'ff325cb59c65421a005699966db065a2fd3f414e420422a4ee6f979c8ac29a2c':
+              raise SystemExit('background hash mismatch')
+          PY
+
+          stats=$(curl -sS 'https://spoo.me/api/v1/public/stats/hajiloop')
+          echo "STATS_RESPONSE=$stats"

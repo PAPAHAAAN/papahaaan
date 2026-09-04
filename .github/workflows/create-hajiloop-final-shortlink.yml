@@ -1,0 +1,49 @@
+name: Create final Hajiloop tracked short link
+
+on:
+  push:
+    paths:
+      - '.github/workflows/create-hajiloop-final-shortlink.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  shorten:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create custom tracked link
+        shell: bash
+        run: |
+          set -euo pipefail
+          target='https://primal-blaze-abcs8e6.shipstatic.com/?utm_source=instagram&utm_medium=bio&utm_campaign=hajiloop_waitlist'
+          candidates=(hajiloop_waitlist meet_hajiloop hajiloop_comingsoon hajiloop26 hajiloop_hq)
+          result=''
+          for alias in "${candidates[@]}"; do
+            response=$(curl -fsS --get 'https://is.gd/create.php' \
+              --data-urlencode 'format=json' \
+              --data-urlencode "url=${target}" \
+              --data-urlencode "shorturl=${alias}" \
+              --data-urlencode 'logstats=1' || true)
+            echo "${alias}: ${response}"
+            short=$(printf '%s' "$response" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(d.get("shorturl", ""))' 2>/dev/null || true)
+            if [[ "$short" == https://is.gd/* ]]; then
+              result="$short"
+              break
+            fi
+          done
+          if [[ -z "$result" ]]; then
+            echo 'No custom alias could be created.' >&2
+            exit 1
+          fi
+          printf '%s\n' "$result" > hajiloop-shortlink.txt
+      - name: Save result
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hajiloop-shortlink.txt
+          git commit -m 'Save Hajiloop tracked short link'
+          git push

@@ -16,6 +16,7 @@ jobs:
           response=$(curl -sS --get 'https://is.gd/create.php' \
             --data-urlencode 'format=json' \
             --data-urlencode 'url=https://radiant-fog-grzr56y.shipstatic.com' \
-            --data-urlencode 'shorturl=hajiloop_waitlist' \
+            --data-urlencode 'shorturl=hajiloop_260906' \
             --data-urlencode 'logstats=1')
           echo "SHORTLINK_RESPONSE=$response"
+          echo "$response" | grep -q 'shorturl'

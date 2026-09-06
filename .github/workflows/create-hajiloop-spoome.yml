@@ -16,6 +16,6 @@ jobs:
           response=$(curl -sS -w '\nHTTP_STATUS:%{http_code}' \
             -X POST 'https://spoo.me/api/v1/shorten' \
             -H 'Content-Type: application/json' \
-            --data '{"long_url":"https://radiant-fog-grzr56y.shipstatic.com/?utm_source=instagram&utm_medium=bio&utm_campaign=hajiloop_waitlist","alias":"hajiloop-waitlist"}')
+            --data '{"long_url":"https://radiant-fog-grzr56y.shipstatic.com/?utm_source=instagram&utm_medium=bio&utm_campaign=hajiloop_waitlist","alias":"hajiloopwait"}')
           echo "$response"
           echo "$response" | grep -q 'HTTP_STATUS:201'

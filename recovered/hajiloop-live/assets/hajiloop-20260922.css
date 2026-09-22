@@ -1,0 +1,220 @@
+/* Hajiloop 2026-09-22 conversion/localization patch.
+   Loaded after the recovered production stylesheet so the current visual system stays intact. */
+
+:root {
+  --early-access-accent: #5d4969;
+  --early-access-ink: #302036;
+  --early-access-glass: rgba(255, 252, 255, 0.82);
+}
+
+/* Country language behavior:
+   TH defaults to Thai, ID defaults to Bahasa Indonesia, every other country to English.
+   In localized markets we expose one compact alternate-language control only. */
+html[data-geo-locale="en"] .language-switcher {
+  display: none !important;
+}
+
+html[data-geo-locale="th"] .language-switcher button,
+html[data-geo-locale="id"] .language-switcher button {
+  display: none;
+}
+
+html[data-geo-locale="th"]:lang(th) .language-switcher [data-language="en"],
+html[data-geo-locale="th"]:lang(en) .language-switcher [data-language="th"],
+html[data-geo-locale="id"]:lang(id) .language-switcher [data-language="en"],
+html[data-geo-locale="id"]:lang(en) .language-switcher [data-language="id"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.language-switcher button {
+  min-width: 44px;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+/* The free-year promise should be visible before the first scroll without taking over the hero. */
+.hero-offer-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 20px auto 0;
+  padding: 9px 14px 8px;
+  border: 1px solid rgba(93, 73, 105, 0.14);
+  border-radius: 999px;
+  background: var(--early-access-glass);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 34px rgba(70, 50, 82, 0.08);
+  color: var(--early-access-ink);
+  line-height: 1;
+}
+
+.hero-offer-badge strong {
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: 0.025em;
+}
+
+.hero-offer-badge span {
+  color: #736579;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+}
+
+/* Small, witty scroll cue requested for the bottom of the hero. It automatically
+   rises above the floating waitlist once the dock appears. */
+.hero-scroll-cue {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: calc(max(18px, env(safe-area-inset-bottom)) + var(--waitlist-clearance, 0px));
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: calc(100% - 32px);
+  padding: 10px 14px;
+  color: #54485d;
+  border-radius: 999px;
+  background: rgba(250, 247, 251, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 28px rgba(62, 45, 74, 0.06);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 540;
+  line-height: 1.3;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  transition: bottom 220ms ease, background-color 180ms ease;
+}
+
+.hero-scroll-cue:hover {
+  background: rgba(255, 253, 255, 0.9);
+}
+
+.hero-scroll-arrow {
+  display: inline-block;
+  font-size: 14px;
+  animation: hajiloop-scroll-nudge 1.8s ease-in-out infinite;
+}
+
+@keyframes hajiloop-scroll-nudge {
+  0%, 100% { transform: translateY(-1px); }
+  50% { transform: translateY(3px); }
+}
+
+/* Repeat the promise at the exact moments users decide whether to join. */
+.experience-offer {
+  max-width: 460px;
+  margin-top: 30px;
+}
+
+.experience-offer strong,
+.experience-offer span {
+  display: block;
+}
+
+.experience-offer strong {
+  color: var(--early-access-ink);
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 760;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.experience-offer span {
+  margin-top: 9px;
+  color: #6d5f72;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.dock-caption strong {
+  color: var(--early-access-ink);
+  font-size: 19px;
+  font-weight: 760;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+.dock-caption span {
+  margin-top: 5px;
+  color: #67596d;
+}
+
+#early-access .early-benefits > div:first-child {
+  padding: 30px 24px 28px;
+  border: 1px solid rgba(93, 73, 105, 0.12);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255,255,255,0.94), transparent 44%),
+    linear-gradient(145deg, rgba(242,228,244,0.82), rgba(226,232,248,0.72));
+  box-shadow: 0 22px 60px rgba(70, 50, 82, 0.09);
+}
+
+#early-access .early-benefits > div:first-child dt {
+  color: var(--early-access-ink);
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 760;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+#early-access .early-benefits > div:first-child dd {
+  color: #5e5264;
+  max-width: 290px;
+  margin: 14px auto 0;
+  font-size: 15px;
+}
+
+#early-access .early-benefits > div:first-child .benefit-icon {
+  width: 46px;
+  height: 46px;
+  margin-bottom: 18px;
+  color: #6f5c7d;
+}
+
+@media (max-width: 600px) {
+  .hero-offer-badge {
+    gap: 8px;
+    margin-top: 15px;
+    padding: 8px 12px 7px;
+  }
+
+  .hero-offer-badge strong {
+    font-size: 14px;
+  }
+
+  .hero-scroll-cue {
+    width: max-content;
+    max-width: calc(100% - 28px);
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+
+  html:not(:lang(en)) .hero-scroll-cue {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .experience-offer strong {
+    font-size: clamp(32px, 10vw, 44px);
+  }
+
+  #early-access .early-benefits > div:first-child {
+    padding: 26px 20px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-arrow {
+    animation: none;
+  }
+
+  .hero-scroll-cue {
+    transition: none;
+  }
+}

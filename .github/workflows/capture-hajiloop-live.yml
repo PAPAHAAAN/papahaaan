@@ -1,0 +1,85 @@
+name: Capture current Hajiloop deploy
+
+on:
+  push:
+    branches:
+      - hajiloop-recover-20260922
+    paths:
+      - .github/workflows/capture-hajiloop-live.yml
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Capture exact public deploy files
+        shell: bash
+        run: |
+          set -euo pipefail
+          ROOT="recovered/hajiloop-live"
+          BASE="https://6ab250b511d3db9c8e46d6a8--hajiloop.netlify.app"
+          mkdir -p "$ROOT"
+
+          curl -fSL --retry 3 "$BASE/" -o "$ROOT/index.html"
+          curl -fSL --retry 3 "$BASE/review-early-access.html" -o "$ROOT/review-early-access.html"
+
+          python - <<'PY'
+          import re, pathlib, subprocess
+          from urllib.parse import urlparse, urljoin
+
+          root = pathlib.Path("recovered/hajiloop-live")
+          base = "https://6ab250b511d3db9c8e46d6a8--hajiloop.netlify.app/"
+          host = urlparse(base).netloc
+
+          refs = set()
+          for page in [root / "index.html", root / "review-early-access.html"]:
+              text = page.read_text(errors="ignore")
+              for m in re.finditer(r'''(?:src|href|poster)\s*=\s*["']([^"'#]+)''', text, re.I):
+                  refs.add(m.group(1).strip())
+              for m in re.finditer(r'''srcset\s*=\s*["']([^"']+)''', text, re.I):
+                  for item in m.group(1).split(","):
+                      refs.add(item.strip().split()[0])
+
+          downloaded = set()
+          for ref in sorted(refs):
+              if not ref or ref.startswith(("data:", "mailto:", "tel:", "javascript:", "#")):
+                  continue
+              url = urljoin(base, ref)
+              parsed = urlparse(url)
+              if parsed.netloc != host:
+                  continue
+              path = parsed.path
+              if path in ("/", "/index.html", "/review-early-access.html"):
+                  continue
+              rel = path.lstrip("/")
+              if not rel:
+                  continue
+              out = root / rel
+              out.parent.mkdir(parents=True, exist_ok=True)
+              subprocess.run(["curl", "-fSL", "--retry", "3", url, "-o", str(out)], check=True)
+              downloaded.add(rel)
+
+          (root / "CAPTURED_FROM.txt").write_text(
+              "deploy_id=6ab250b511d3db9c8e46d6a8\n"
+              "base=" + base + "\n"
+              + "\n".join(sorted(downloaded)) + "\n"
+          )
+          PY
+
+      - name: Commit snapshot to recovery branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Hajiloop Recovery"
+          git config user.email "actions@users.noreply.github.com"
+          git add recovered/hajiloop-live
+          if git diff --cached --quiet; then
+            echo "No snapshot changes"
+            exit 0
+          fi
+          git commit -m "Capture Hajiloop deploy snapshot [snapshot]"
+          git push

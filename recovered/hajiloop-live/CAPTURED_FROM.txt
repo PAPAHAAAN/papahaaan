@@ -1,0 +1,10 @@
+deploy_id=6ab250b511d3db9c8e46d6a8
+base=https://6ab250b511d3db9c8e46d6a8--hajiloop.netlify.app/
+assets/everyday-movement.webp
+assets/everyday-recovery.webp
+assets/everyday-sleep.webp
+assets/hero-haji-refined-desktop.webp
+assets/hero-haji-refined-mobile.webp
+assets/index-BjpDLvoS.js
+assets/index-x13HYIf0.css
+privacy

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf9fc">
+  <meta name="description" content="How Hajiloop uses waitlist information and website analytics.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="canonical" href="https://hajiloop.netlify.app/privacy.html">
+  <link rel="icon" href="data:,">
+  <title>Privacy — Hajiloop</title>
+  <style>
+    * { box-sizing:border-box; }
+    body { margin:0; color:#353340; background:#faf9fc; font:1rem/1.75 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    main { max-width:720px; margin:auto; padding:48px 24px 80px; }
+    a { color:inherit; text-underline-offset:4px; overflow-wrap:anywhere; }
+    a:hover { color:#645670; }
+    a:focus-visible { outline:2px solid #76658e; outline-offset:5px; }
+    .back { display:inline-block; padding:8px 0; font-size:.875rem; color:#706b7b; }
+    h1 { font-size:clamp(2.5rem,7vw,3.5rem); font-weight:400; line-height:1.15; margin:40px 0 12px; }
+    h2 { font-size:1.25rem; font-weight:500; line-height:1.4; margin:36px 0 12px; }
+    p { margin:0 0 16px; }
+    .updated { color:#706b7b; font-size:.875rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="/">Back to Hajiloop</a>
+    <h1>Privacy</h1>
+    <p class="updated">Updated September 14, 2026</p>
+
+    <h2>Your waitlist information</h2>
+    <p>When you join, we store your email address, signup time, and information about how you found Hajiloop. We use this to manage the waitlist and send launch updates.</p>
+    <p>For questions or to request removal, email <a href="mailto:loopnote.hq@gmail.com">loopnote.hq@gmail.com</a>.</p>
+
+    <h2>Website analytics</h2>
+    <p>We use Google Analytics and Microsoft Clarity on our landing page to understand visits, clicks, scrolling, and signup activity. Clarity’s heatmaps and session replays help us improve the experience.</p>
+    <p>Email fields are masked in Clarity replays. We do not send your email address in analytics events.</p>
+    <p>Clarity is configured without cookies. Google Analytics may use cookies depending on your region and privacy settings. Google advertising storage and personalization are disabled.</p>
+    <p>Read more in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and <a href="https://privacy.microsoft.com/privacystatement">Microsoft Privacy Statement</a>.</p>
+
+    <h2>Meta Pixel</h2>
+    <p>We use Meta Pixel on our landing page to measure page visits and help understand how our Facebook and Instagram ads bring people to Hajiloop. Meta may receive the page URL, browser and device information, and cookie identifiers, and may associate visits with a Meta account.</p>
+    <p>Our integration sends a PageView event. Automatic event detection is disabled, and we do not pass your waitlist email or health information to the pixel. The pixel does not load when your browser signals Global Privacy Control or Do Not Track, or when JavaScript is disabled.</p>
+    <p>Read more in the <a href="https://www.facebook.com/privacy/policy/">Meta Privacy Policy</a>.</p>
+  </main>
+</body>
+</html>

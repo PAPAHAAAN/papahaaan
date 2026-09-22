@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <!-- Meta Pixel Code: production only; respect browser tracking opt-outs. -->
+  <script>
+    (() => {
+      if (location.origin !== 'https://hajiloop.netlify.app' ||
+          navigator.globalPrivacyControl === true ||
+          navigator.doNotTrack === '1' || window.doNotTrack === '1' ||
+          window.hajiloopMetaPixelInitialized) return;
+      window.hajiloopMetaPixelInitialized = true;
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      // Only the requested PageView; disable automatic event/form detection.
+      fbq('set', 'autoConfig', false, '2138024160446732');
+      fbq('init', '2138024160446732');
+      fbq('track', 'PageView');
+    })();
+  </script>
+  <!-- No noscript tracking image: it would bypass the origin and opt-out checks. -->
+  <!-- End Meta Pixel Code -->
+  <!-- Google tag (GA4): production only; initialized once, independently of the UI. -->
+  <script>
+    (() => {
+      if (location.origin !== 'https://hajiloop.netlify.app') return;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+      gtag('consent', 'default', {
+        ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'
+      });
+      // Keep analytics storage off in these regions until a consent flow is added.
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        region: ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE',
+          'GR', 'HU', 'IS', 'IE', 'IT', 'LV', 'LI', 'LT', 'LU', 'MT', 'NL', 'NO',
+          'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'CH', 'GB']
+      });
+      if (navigator.globalPrivacyControl === true) {
+        gtag('consent', 'default', { analytics_storage: 'denied' });
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-FLB6SZW93C', {
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
+      const tag = document.createElement('script');
+      tag.async = true;
+      tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-FLB6SZW93C';
+      document.head.append(tag);
+    })();
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f1f8" />
+  <meta name="description" content="Know your body. In context. Hajiloop brings sleep, recovery, movement, and what you choose to share together with Haji. Join Early Access for 3 months free at launch." />
+  <meta name="hajiloop-landing-version" content="early-access-20260921" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Hajiloop — Know your body. In context." />
+  <meta property="og:description" content="Health records meet everyday context. Join Hajiloop Early Access and get your first 3 months free at launch." />
+  <meta property="og:url" content="https://hajiloop.netlify.app/" />
+  <link rel="canonical" href="https://hajiloop.netlify.app/" />
+  <link rel="icon" href="data:," />
+  <title>Hajiloop — Know your body. In context.</title>
+  <script type="module" crossorigin src="/assets/index-BjpDLvoS.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-x13HYIf0.css">
+</head>
+<body>
+  <!-- Remove the white matte from the generated body artwork only, not its animated eyes. -->
+  <svg width="0" height="0" class="asset-filters" aria-hidden="true" focusable="false"><defs><filter id="haji-alpha" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -2 -2 -2 5.95 0"/></filter></defs></svg>
+  <div class="brand-atmosphere" aria-hidden="true"></div>
+  <header class="site-header" data-header>
+    <span class="wordmark">hajiloop</span>
+    <nav class="language-switcher" aria-label="Language">
+      <button type="button" data-language="en" lang="en" aria-pressed="true">English</button>
+      <button type="button" data-language="th" lang="th" aria-pressed="false">ไทย</button>
+      <button type="button" data-language="id" lang="id" aria-pressed="false">Bahasa Indonesia</button>
+    </nav>
+  </header>
+  <aside class="waitlist-dock" id="join" data-waitlist-state data-waitlist-ready="false" aria-label="Hajiloop early access" hidden>
+    <p class="dock-caption"><strong>Join Early Access</strong><span>Get 3 months of Hajiloop free at launch.</span></p>
+    <div class="waitlist-entry">
+      <form class="waitlist-form" data-waitlist-form>
+        <label class="sr-only" for="waitlist-email">Email address</label>
+        <input id="waitlist-email" data-clarity-mask="true" type="email" name="email" inputmode="email" enterkeyhint="send" autocomplete="email" autocapitalize="none" spellcheck="false" maxlength="254" placeholder="Your email address" aria-describedby="waitlist-privacy waitlist-error" required />
+        <div class="honeypot" aria-hidden="true"><label for="company">Leave this empty</label><input id="company" data-clarity-mask="true" name="company" type="text" autocomplete="off" tabindex="-1" /></div>
+        <button type="submit">Join Early Access</button>
+      </form>
+      <p class="waitlist-confirmation" data-join-bubble role="status" aria-live="polite" aria-atomic="true" tabindex="-1" hidden></p>
+    </div>
+    <p class="form-error" id="waitlist-error" role="alert"></p>
+    <p class="privacy" id="waitlist-privacy">By joining, you agree to receive launch updates. <a href='/privacy'>Privacy</a></p>
+  </aside>
+  <main id="main">
+    <section class="hero hero-editorial" id="top" aria-labelledby="hero-title">
+      <picture class="hero-art">
+        <source media="(max-width:600px)" srcset="/assets/hero-haji-refined-mobile.webp" />
+        <img src="/assets/hero-haji-refined-desktop.webp" width="1964" height="1363" fetchpriority="high" decoding="async" alt="Haji peeks through a graphite ring, leaning toward a woman's raised fingertip." />
+      </picture>
+      <div class="hero-copy">
+        <h1 id="hero-title">Know your body.<br><em>In context.</em></h1>
+        <p class="hero-sub">Hajiloop connects sleep, recovery, movement, and the everyday context you choose to share—so Haji can help you understand what your body is telling you.</p>
+      </div>
+    </section>
+
+    <section class="meet experience section-pad" id="experience" aria-labelledby="experience-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">ONE CONVERSATION, A LITTLE MORE CLARITY</p>
+        <h2 id="experience-title">One next step.<br>Not another checklist.</h2>
+      </div>
+      <div class="phone-stage haji-phone-stage reveal">
+        <div class="haji-phone concept-phone">
+          <div class="haji-phone-top"><span>A moment for you</span></div>
+          <div class="phone-user">I slept enough, but I still feel tired.</div>
+          <div class="phone-reply">Do you feel sleepy, or more physically drained?</div>
+          <div class="phone-user">Sleepy. I’ve been going to bed later.</div>
+          <div class="phone-reply">Tonight, try starting your wind-down a little earlier.</div>
+        </div>
+      </div>
+      <p class="transcript-note">Illustrative conversation.</p>
+      <p class="experience-offer">Your first 3 months of Hajiloop, free at launch.</p>
+      <button class="hero-join" type="button" data-open-waitlist aria-controls="join">Join the waitlist</button>
+      <noscript><p class="privacy">Please enable JavaScript to join the waitlist.</p></noscript>
+    </section>
+
+    <section class="meaning everyday section-pad" id="meaning" aria-labelledby="everyday-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">THE QUESTIONS THAT STAY WITH YOU</p>
+        <h2 id="everyday-title">Your numbers are only<br>part of the story.</h2>
+        <p>How you feel matters, too.</p>
+      </div>
+      <div class="everyday-track" tabindex="0" role="region" aria-label="Explore sleep, recovery and movement" aria-roledescription="carousel">
+        <article class="everyday-slide" aria-labelledby="sleep-card-title">
+          <img src="/assets/everyday-sleep.webp" data-focus-x="0.535" data-focus-y="0.455" width="1122" height="1402" loading="lazy" decoding="async" alt="A woman resting on a pillow against a soft lavender background." />
+          <div class="everyday-slide-copy"><p class="eyebrow">SLEEP</p><h3 id="sleep-card-title">I slept. Why am I still tired?</h3></div>
+          <button class="everyday-more" type="button" aria-label="Learn more about sleep" aria-haspopup="dialog" aria-controls="sleep-detail" data-detail="sleep-detail"><span aria-hidden="true">+</span></button>
+        </article>
+        <article class="everyday-slide" aria-labelledby="recovery-card-title">
+          <img src="/assets/everyday-recovery.webp" data-focus-x="0.51" data-focus-y="0.495" width="1122" height="1402" loading="lazy" decoding="async" alt="A woman stretching against a soft peach background." />
+          <div class="everyday-slide-copy"><p class="eyebrow">RECOVERY</p><h3 id="recovery-card-title">Should I get moving, or take a break?</h3></div>
+          <button class="everyday-more" type="button" aria-label="Learn more about recovery" aria-haspopup="dialog" aria-controls="recovery-detail" data-detail="recovery-detail"><span aria-hidden="true">+</span></button>
+        </article>
+        <article class="everyday-slide" aria-labelledby="movement-card-title">
+          <img src="/assets/everyday-movement.webp" data-focus-x="0.505" data-focus-y="0.463" width="1122" height="1402" loading="lazy" decoding="async" alt="A woman running against a soft blue background." />
+          <div class="everyday-slide-copy"><p class="eyebrow">MOVEMENT &amp; RHYTHM</p><h3 id="movement-card-title">Why do some days just feel easier?</h3></div>
+          <button class="everyday-more" type="button" aria-label="Learn more about movement" aria-haspopup="dialog" aria-controls="movement-detail" data-detail="movement-detail"><span aria-hidden="true">+</span></button>
+        </article>
+      </div>
+      <div class="everyday-controls" aria-label="Slide controls">
+        <button type="button" data-slide-prev aria-label="Previous slide" disabled><span aria-hidden="true">←</span></button>
+        <button type="button" data-slide-next aria-label="Next slide"><span aria-hidden="true">→</span></button>
+      </div>
+      <dialog class="everyday-dialog" id="sleep-detail" aria-labelledby="sleep-detail-title">
+        <button class="everyday-close" type="button" aria-label="Close sleep details" autofocus><span aria-hidden="true">×</span></button>
+        <div class="everyday-dialog-body">
+          <p class="detail-chapter"><span>01</span> SLEEP</p>
+          <h2 id="sleep-detail-title">I slept. Why am I still tired?</h2>
+          <p class="everyday-detail-text">Bring your sleep records and how rested you feel into the same conversation.</p>
+          <div class="detail-example">
+            <dl class="detail-conversation">
+              <div class="detail-message detail-message-you"><dt>You</dt><dd>I feel sleepy, even after enough sleep. My bedtime has been drifting later.</dd></div>
+              <div class="detail-message detail-message-haji"><dt>Haji</dt><dd>Could you start winding down a little earlier tonight?</dd></div>
+            </dl>
+            <p class="detail-example-note">Illustrative conversation</p>
+          </div>
+        </div>
+      </dialog>
+      <dialog class="everyday-dialog" id="recovery-detail" aria-labelledby="recovery-detail-title">
+        <button class="everyday-close" type="button" aria-label="Close recovery details" autofocus><span aria-hidden="true">×</span></button>
+        <div class="everyday-dialog-body">
+          <p class="detail-chapter"><span>02</span> RECOVERY</p>
+          <h2 id="recovery-detail-title">Should I get moving, or take a break?</h2>
+          <p class="everyday-detail-text">Put recent activity alongside your energy and plans. A useful next step can be doing less.</p>
+          <div class="detail-example">
+            <dl class="detail-conversation">
+              <div class="detail-message detail-message-you"><dt>You</dt><dd>I feel tired. I planned a solo run, but I can change it.</dd></div>
+              <div class="detail-message detail-message-haji"><dt>Haji</dt><dd>Would a short, comfortable walk fit today instead?</dd></div>
+            </dl>
+            <p class="detail-example-note">Illustrative conversation</p>
+          </div>
+        </div>
+      </dialog>
+      <dialog class="everyday-dialog" id="movement-detail" aria-labelledby="movement-detail-title">
+        <button class="everyday-close" type="button" aria-label="Close movement details" autofocus><span aria-hidden="true">×</span></button>
+        <div class="everyday-dialog-body">
+          <p class="detail-chapter"><span>03</span> MOVEMENT &amp; RHYTHM</p>
+          <h2 id="movement-detail-title">Why do some days just feel easier?</h2>
+          <p class="everyday-detail-text">Make sense of your movement in the context of your day, with room for what you choose to share.</p>
+          <div class="detail-example">
+            <dl class="detail-conversation">
+              <div class="detail-message detail-message-you"><dt>You</dt><dd>I’ve been at my desk all day. I have ten minutes before my next meeting.</dd></div>
+              <div class="detail-message detail-message-haji"><dt>Haji</dt><dd>Would a brief walk outside fit that break?</dd></div>
+            </dl>
+            <p class="detail-example-note">Illustrative conversation</p>
+          </div>
+        </div>
+      </dialog>
+    </section>
+
+    <section class="in-tune understanding section-pad" id="understanding" aria-labelledby="in-tune-title">
+      <div class="section-head reveal">
+        <p class="eyebrow">A LITTLE MORE IN TUNE</p>
+        <h2 id="in-tune-title">Your body, in tune.<br><span>Your life, in full.</span></h2>
+        <p>Your body deserves the care of a finely crafted instrument. Make room for how it feels today.</p>
+      </div>
+      <div class="understanding-story reveal">
+        <p class="story-line">Start with<br><em>your usual.</em></p>
+        <p>What feels familiar? What feels different? Bring your recent sleep, movement, and how you feel into the conversation.</p>
+      </div>
+    </section>
+
+    <section class="one-section section-pad" id="one" aria-labelledby="one-title">
+      <div class="one-layout reveal">
+        <div><p class="eyebrow">THE WEARABLE PART OF THE LOOP</p><h2 id="one-title">Meet Hajiloop One.<br><span>Our smart ring.</span></h2></div>
+        <div class="one-description"><p>One brings body signals into Hajiloop. Haji helps put them in context. An optional Apple Health connection is planned for the iPhone app.</p><p class="one-note">Part of the upcoming Hajiloop experience.</p></div>
+      </div>
+    </section>
+
+    <!-- Stays hidden until genuine, consented user experiences are ready. -->
+    <section class="testimonials section-pad" id="stories" data-testimonials hidden aria-labelledby="testimonials-title"></section>
+
+    <section class="faq section-pad" id="questions" aria-labelledby="faq-title">
+      <div class="section-head reveal"><p class="eyebrow">BEFORE OUR FIRST HELLO</p><h2 id="faq-title">A few things<br>you might be wondering.</h2></div>
+      <div class="faq-list">
+        <details><summary>What is Haji?</summary><div><p>Haji is Hajiloop’s AI companion for understanding your everyday wellbeing. It helps you talk through sleep, recovery, movement, and how you feel, with a focus on one manageable next step.</p><p>Haji supports reflection and everyday choices. It doesn’t diagnose conditions or replace medical care.</p></div></details>
+        <details><summary>What information does Hajiloop use?</summary><div><p>Available sleep, recovery, and movement records, plus how you feel and the everyday context you choose to share. An optional Apple Health connection is planned for the iPhone app.</p><p>Joining this waitlist does not connect to your health data.</p></div></details>
+        <details><summary>Which devices will it support?</summary><div><p>Hajiloop is being built for iPhone. Supported models, iOS versions, and whether Hajiloop One is required at launch have not been announced.</p></div></details>
+        <details><summary>What happens after I join?</summary><div><p>After you join, we’ll save your place and send a confirmation email. Launch updates will go to the same address. You only need to sign up once.</p></div></details>
+        <details><summary>When will early access begin?</summary><div><p>A launch date hasn’t been announced yet. We’ll share timing by email.</p></div></details>
+        <details><summary>How does the three-month offer work?</summary><div><p>Waitlist members get their first three months of Hajiloop free at launch. The exact access terms and pricing after the free period haven’t been announced.</p></div></details>
+        <details><summary>How is my waitlist information handled?</summary><div><p>We store your email, signup time, and how you found Hajiloop to manage the waitlist and send launch updates. Email inputs are masked in Clarity session replays, and we don’t send your email in analytics events.</p><p>Read our <a href='/privacy'>Privacy information</a>. For questions or removal requests, email <a href="mailto:loopnote.hq@gmail.com">loopnote.hq@gmail.com</a>.</p></div></details>
+      </div>
+    </section>
+
+    <section class="join early-access section-pad" id="early-access" aria-labelledby="early-access-title">
+      <div class="join-panel reveal">
+        <div class="join-copy">
+          <p class="eyebrow">EARLY ACCESS</p>
+          <h2 id="early-access-title">Be there when<br>the loop begins.</h2>
+          <dl class="early-benefits">
+            <div><dt><svg class="benefit-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="6" width="22" height="22" rx="5"/><path d="M10 3v6m12-6v6M5 13h22m-15 5h8m-8 5h5"/></svg>3 months, on us.</dt><dd>Waitlist members get their first three months of Hajiloop free when we launch.</dd></div>
+            <div><dt><svg class="benefit-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="16" cy="16" rx="9" ry="12"/><ellipse cx="16" cy="16" rx="5" ry="8"/><path d="m25 3 1 3 3 1-3 1-1 3-1-3-3-1 3-1Z"/></svg>One, for the first 10.</dt><dd>The first ten waitlist signups receive Hajiloop One ahead of the wider release.</dd></div>
+          </dl>
+          <p class="benefit-order">First-ten order follows your original signup time.<br>Repeat submissions don’t change your place.</p>
+          <div class="signup-after"><p>After you join, a confirmation email will follow.</p><p>We’ll keep you posted on the launch.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <span class="wordmark">hajiloop</span>
+    <p>A little conversation. A little more clarity.</p>
+    <div class="footer-meta"><span>© 2026 Hajiloop</span><a data-privacy-link href='/privacy'>Privacy</a><a href="mailto:loopnote.hq@gmail.com">Contact</a></div>
+  </footer>
+</body>
+</html>

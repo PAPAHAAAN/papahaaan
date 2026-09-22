@@ -1,0 +1,29 @@
+name: Check Hajiloop deploy auth
+
+on:
+  push:
+    branches:
+      - hajiloop-recover-20260922
+    paths:
+      - .github/workflows/check-hajiloop-netlify-auth.yml
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check configured deploy credentials without exposing them
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+        shell: bash
+        run: |
+          if [ -n "${NETLIFY_AUTH_TOKEN:-}" ]; then
+            echo "NETLIFY_AUTH_TOKEN_PRESENT=yes"
+          else
+            echo "NETLIFY_AUTH_TOKEN_PRESENT=no"
+          fi
+          if [ -n "${NETLIFY_TOKEN:-}" ]; then
+            echo "NETLIFY_TOKEN_PRESENT=yes"
+          else
+            echo "NETLIFY_TOKEN_PRESENT=no"
+          fi

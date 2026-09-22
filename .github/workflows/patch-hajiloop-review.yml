@@ -1,0 +1,65 @@
+name: Patch recovered Hajiloop review page
+
+on:
+  push:
+    branches:
+      - hajiloop-recover-20260922
+    paths:
+      - .github/workflows/patch-hajiloop-review.yml
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Remove old three-month offer from recovered review page
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("recovered/hajiloop-live/review-early-access.html")
+          text = path.read_text(encoding="utf-8")
+          replacements = [
+              ("3 months", "1 year"),
+              ("3 Months", "1 Year"),
+              ("THREE MONTHS", "ONE YEAR"),
+              ("three months", "one year"),
+              ("Three months", "One year"),
+              ("3-month", "1-year"),
+              ("three-month", "one-year"),
+              ("3 เดือน", "1 ปี"),
+              ("สามเดือน", "หนึ่งปี"),
+              ("3 bulan", "1 tahun"),
+              ("3 Bulan", "1 Tahun"),
+              ("tiga bulan", "satu tahun"),
+              ("Tiga bulan", "Satu tahun"),
+          ]
+
+          total = 0
+          for old, new in replacements:
+              count = text.count(old)
+              if count:
+                  print(f"{old!r}: {count}")
+                  text = text.replace(old, new)
+                  total += count
+
+          path.write_text(text, encoding="utf-8")
+          print(f"TOTAL_REPLACEMENTS={total}")
+
+      - name: Commit review-page patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Hajiloop Landing"
+          git config user.email "actions@users.noreply.github.com"
+          git add recovered/hajiloop-live/review-early-access.html
+          if git diff --cached --quiet; then
+            echo "No old offer copy found in review page"
+            exit 0
+          fi
+          git commit -m "Update recovered review page to one-year offer"
+          git push
